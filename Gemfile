@@ -7,6 +7,8 @@ end
 
 gem 'griddler'
 gem 'griddler-sendgrid'
+gem 'dotenv'
+gem 'sendgrid-ruby'
 
 gem 'rails', '~> 5.1.2'
 gem 'pg'
