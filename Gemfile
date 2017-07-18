@@ -7,7 +7,6 @@ end
 
 gem 'griddler'
 gem 'griddler-sendgrid'
-gem 'dotenv'
 gem 'sendgrid-ruby'
 
 gem 'rails', '~> 5.1.2'
@@ -24,6 +23,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  gem 'dotenv-rails'
 end
 
 group :development do
