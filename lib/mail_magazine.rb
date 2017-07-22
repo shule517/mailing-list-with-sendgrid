@@ -1,5 +1,5 @@
 class MailMagazine
-  attr_accessor :email, :last_name, :first_name
+  attr_accessor = :mailing_lists
 
   def initialize
     @sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
@@ -7,7 +7,8 @@ class MailMagazine
 
   def lists
     response = call_recipients.get().body
-    recipients(response)
+    mailing_lists = recipients(response)
+    mailing_lists.map{ |i| i[:email] }
   end
 
   def member_present?(email)
