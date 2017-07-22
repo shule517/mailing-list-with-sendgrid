@@ -1,29 +1,28 @@
-class MailMagazine
-  attr_accessor = :mailing_lists
+class MailingList
 
   def initialize
     @sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
   end
 
-  def lists
+  def contact_list
     response = call_recipients.get().body
-    mailing_lists = recipients(response)
-    mailing_lists.map{ |i| i[:email] }
+    contact_lists = recipients(response)
+    contact_lists.map{ |i| i[:email] }
   end
 
-  def member_present?(email)
+  def contact_present?(email)
     params = set_email_to_json(email)
     response = call_recipients.search.get(query_params: params).body
     if recipients(response).count == 0
       false
     else
-      @member_mail = recipients(response)[0][:email]
-      email == @member_mail
+      contact_mail = recipients(response)[0][:email]
+      email == contact_mail
     end
   end
 
-  def add_member(email)
-    if self.member_present?(email)
+  def add_contact(email)
+    if self.contact_present?(email)
       false
     else
       params = set_email_to_json(email)
@@ -32,15 +31,15 @@ class MailMagazine
     end
   end
 
-  def remove_member(email)
-    unless self.member_present?(email)
+  def remove_contact(email)
+    unless self.contact_present?(email)
       false
     else
       params = set_email_to_json(email)
       response = call_recipients.search.get(query_params: params).body
-      member_id = recipients(response)[0][:id]
-      call_recipients._(member_id).delete()
-      self.member_present?(email) == false
+      contact_id = recipients(response)[0][:id]
+      call_recipients._(contact_id).delete()
+      self.contact_present?(email) == false
     end
   end
 
