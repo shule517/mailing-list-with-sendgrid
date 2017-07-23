@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
 
+  get 'mail_news/list' => 'mail_news#list'
   get 'mail_news' => 'mail_news#index'
   post 'mail_news' => 'mail_news#index'
 

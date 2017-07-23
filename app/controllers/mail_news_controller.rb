@@ -22,4 +22,9 @@ class MailNewsController < ApplicationController
       end
     end
   end
+
+  def list
+    mail = MailingList.new
+    @contacts = mail.contact_list
+  end
 end
