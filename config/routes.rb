@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  root to: 'mail_news#index'
+  root to: 'homes#index'
 
   get 'mail_news' => 'mail_news#index'
   post 'mail_news' => 'mail_news#index'
