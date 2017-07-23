@@ -1,2 +1,17 @@
 <h1>Mail News</h1>
-<p>ここはMailNewsの登録フォームです。</p>
+
+<%= notice if notice %>
+
+<p>Add your Mail to Mailing List</p>
+<%= form_with url: '/mail_news' do |f| %>
+  <%= f.text_field :email %>
+  <%= f.submit %>
+<% end %>
+
+<hr>
+
+<p>Remove your Mail to Mailing List</p>
+<%= form_with url: '/mail_news' do |f| %>
+  <%= f.text_field :remove_email %>
+  <%= f.submit %>
+<% end %>
