@@ -6,9 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+if Rails.env.development?
+  Dotenv::Railtie.load
 
-HOSTNAME = ENV['HOSTNAME']
+  HOSTNAME = ENV['HOSTNAME']
+end
 
 module MailNews
   class Application < Rails::Application
