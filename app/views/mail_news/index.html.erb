@@ -2,18 +2,18 @@
 
 <%= notice if notice %>
 
-<seciton>
-  <p>Add your Mail to Mailing List</p>
+<section>
+  <h2>Add your Mail to Mailing List</h2>
   <%= form_with url: '/mail_news' do |f| %>
     <%= f.text_field :email %>
-    <%= f.submit %>
+    <%= f.submit 'REGISTER' %>
   <% end %>
-</seciton>
+</section>
 
-<seciton>
-  <p>Remove your Mail to Mailing List</p>
+<section>
+  <h2>Remove your Mail to Mailing List</h2>
   <%= form_with url: '/mail_news' do |f| %>
     <%= f.text_field :remove_email %>
-    <%= f.submit %>
+    <%= f.submit 'UNREGISTER' %>
   <% end %>
-</seciton>
+</section>
